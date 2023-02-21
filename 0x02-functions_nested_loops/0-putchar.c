@@ -2,11 +2,11 @@
 /**
  * main - prints _putchar
  *
- * Return: 0 if it successful
+ * Return: Always 0 in success
  */
 int main(void)
 {
-	_putchar(95); /* 95 is the asci for _*/
+	_putchar(95); /*95 is asci for _*/
 	_putchar('p');
 	_putchar('u');
 	_putchar('t');
@@ -18,3 +18,4 @@ int main(void)
 
 	return (0);
 }
+
