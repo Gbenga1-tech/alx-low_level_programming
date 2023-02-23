@@ -1,22 +1,18 @@
 #include "main.h"
 
 /**
- * print_number - Prints an integer.
- * @n: n is integer to be printed.
+ * print_numbers - checks for checks for a digit (0 through 9).
+ *
+ * Return: Always 0.
  */
-void print_number(int n)
+void print_numbers(void)
 {
-	unsigned int number = n;
+	int c;
 
-	if (n < 0)
+	for (c = 48; c < 58; c++)
 	{
-		_putchar('-');
-		number = -number;
+		_putchar(c);
 	}
-
-	if ((number / 10) > 0)
-		print_number(number / 10);
-
-	_putchar((number % 10) + '0');
+	putchar('\n');
 }
 
