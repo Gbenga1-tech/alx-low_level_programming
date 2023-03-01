@@ -1,22 +1,22 @@
 #include "main.h"
 
 /**
- * _strcmp - Compares 2 string ending at first different byte
- * @s1: pointer to first string.
- * @s2: pointer to second string.
- *
- * Return: If str1 < str2, the negative difference
- *         If str1 == str2, 0.
- *         If str1 > str2, the positive difference
+ * reverse_array - Reverses the content of an array of int
+ * @a: array to be reversed.
+ * @n: number of elements in array.
  */
 
-int _strcmp(char *s1, char *s2)
+void reverse_array(int *a, int n)
 {
-	while (*s1 && *s2 && *s1 == *s2)
-	{
-		s1++;
-		s2++;
-	}
+	int i, temp;
 
-	return (*s1 - *s2);
+	i = temp =  0;
+	n -= 1;
+
+	while (i <= n)
+	{
+		temp = a[n];
+		a[n--] = a[i];
+		a[i++] = temp;
+	}
 }
