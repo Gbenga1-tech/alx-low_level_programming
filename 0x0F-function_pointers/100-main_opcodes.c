@@ -1,73 +1,46 @@
-#include "3-calc.h"
 #include <stdio.h>
 #include <stdlib.h>
 
 /**
- * op_add - adds a and b
- * @a: first number
- * @b: second number
+ * main - Prints the opcodes of its main function
+ * @argc: number of arguments supplied to the program.
+ * @argv: array of pointers to the arguments.
  *
- * Return: sum of a and b
+ * Return: 0.
  */
-int op_add(int a, int b)
+int main(int argc, char *argv[])
 {
-	return (a + b);
-}
+	int b, i;
+	int (*address)(int, char **) = main;
+	unsigned char opcode;
 
-/**
- * op_sub - subtracts b from a
- * @a: first number
- * @b: second number
- *
- * Return: difference of a and b
- */
-int op_sub(int a, int b)
-{
-	return (a - b);
-}
-
-/**
- * op_mul - multiplies a and b
- * @a: first number
- * @b: second number
- *
- * Return: product of a and b
- */
-int op_mul(int a, int b)
-{
-	return (a * b);
-}
-
-/**
- * op_div - divides a by b
- * @a: first number
- * @b: second number
- *
- * Return: quotient of a and b
- */
-int op_div(int a, int b)
-{
-	if (!b)
+	if (argc != 2)
 	{
 		printf("Error\n");
-		exit(100);
+		exit(1);
 	}
-	return (a / b);
-}
 
-/**
- * op_mod - Returns the remainder of the division of two numbers.
- * @a: The first number.
- * @b: The second number.
- *
- * Return: remainder of the division of a by b.
- */
-int op_mod(int a, int b)
-{
-	if (!b)
+	b = atoi(argv[1]);
+
+	if (b < 0)
 	{
 		printf("Error\n");
-		exit(100);
+		exit(2);
 	}
-	return (a % b);
+
+	for (i = 0; i < b; i++)
+	{
+		opcode = *(unsigned char *)address;
+		printf("%.2x", opcode);
+
+		if (i == b - 1)
+			continue;
+		printf(" ");
+
+		address++;
+	}
+
+	printf("\n");
+
+	return (0);
 }
